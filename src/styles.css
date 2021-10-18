@@ -1,1 +1,318 @@
-/* You can add global styles to this file, and also import other style files */
+/* set-up */
+:root {
+  --mainGold: #d7be69;
+  --mainWhite: whitesmoke;
+  --mainBlack: #121212;
+  --mainDarkGrey: #252525;
+  --mainLightGrey: #fdfdfd;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+  --secondTransition: all 0.3s ease-in-out;
+  --fontFamily: "Yu Gothic Light", sans-serif;
+  --fontHeadings: "Bodoni MT", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--mainBlack);
+  background: var(--mainLightGrey);
+  font-family: var(--fontFamily);
+}
+
+/* --- navigation --- */
+.navbar {
+  color: var(--mainWhite) !important;
+  background-color: var(--mainBlack) !important;
+}
+
+.navbar-brand {
+  color: var(--mainGold) !important;
+  font-size: 2.75em !important;
+  font-family: var(--fontHeadings);
+}
+
+.total-price,
+.navbar li a {
+  color: var(--mainWhite) !important;
+  font-size: 1.4em !important;
+}
+
+.navbar li a:hover {
+  color: var(--mainGold) !important;
+  transition: var(--mainTransition);
+}
+
+.navbar button {
+  color: var(--mainWhite);
+}
+
+.navbar button:hover {
+  color: var(--mainGold);
+}
+
+.nav-icon i {
+  font-size: 1.5em;
+  margin: 0 0.7rem;
+  cursor: pointer;
+}
+
+.nav-icon > a {
+  color: var(--mainWhite) !important;
+}
+
+.cart-btn {
+  position: relative;
+}
+
+.cart-items {
+  position: absolute;
+  top: -7px;
+  right: -1px;
+  background: var(--mainGold);
+  padding: 0 5px;
+  border-radius: 30%;
+  color: var(--mainDarkGrey);
+  font-size: 1em;
+}
+
+/* --- end of navigation --- */
+
+/* --- homepage --- */
+.hero {
+  height: 70vh;
+  background-image: url(/assets/hero\ -\ Copy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--mainWhite);
+}
+
+.hero h1 {
+  font-size: 7em;
+  color: var(--mainGold);
+  font-style: italic;
+  font-family: var(--fontHeadings);
+  text-shadow: 0.1rem 0.1rem 0.8rem black;
+}
+
+.hero h3 {
+  font-size: 2.5em;
+  font-weight: 300;
+  text-shadow: 0.1rem 0.1rem 0.8rem black;
+}
+
+.menu button,
+.hero button {
+  color: var(--mainDarkGrey);
+  background-color: var(--mainWhite);
+  border-color: var(--mainWhite);
+  font-size: 1.5em;
+}
+
+.menu button:hover,
+.hero button:hover {
+  color: var(--mainWhite);
+  background-color: var(--mainGold);
+  border-color: var(--mainGold);
+  transition: var(--mainTransition);
+}
+
+/* --- end of homepage --- */
+
+/* --- menu --- */
+.menu button {
+  width: 100%;
+  text-transform: capitalize;
+}
+
+.dish-name {
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.dish-description {
+  font-style: italic;
+}
+
+.back-to-menu a {
+  font-size: 1.3em;
+  font-style: italic;
+  color: var(--mainWhite);
+}
+
+/* --- end of menu --- */
+
+/* --- order details --- */
+.menu,
+.menu-category,
+.order,
+.checkout,
+.confirmed-order,
+.submit-review,
+.review {
+  color: var(--mainBlack);
+  background-image: url(/assets/dish-bg.jpg);
+  background-position: bottom-center;
+  min-height: 70vh;
+}
+
+.menu h3,
+.menu-category h3,
+.order h3,
+.checkout h3,
+.submit-review h3,
+.review h3 {
+  text-transform: capitalize;
+  font-family: var(--fontHeadings);
+  color: var(--mainWhite);
+  text-shadow: 0.1rem 0.1rem 0.8rem black;
+  font-size: 2.8em;
+}
+
+.menu-item,
+.order .table,
+.checkout form,
+.submit-review form,
+.review .card-body {
+  background-color: rgba(248, 245, 245, 0.8);
+  border: none !important;
+}
+
+.order-details button,
+.order-details span {
+  margin: 2%;
+}
+
+.order-details i {
+  font-size: 1em;
+}
+
+.menu-item button:hover,
+.order button:hover,
+.checkout button:hover,
+.confirmed-order button:hover,
+.submit-review button:hover,
+.review button:hover {
+  transition: var(--mainTransition);
+  background-color: var(--mainGold);
+  border-color: var(--mainGold);
+}
+
+.empty-list {
+  font-size: 1.5em;
+  color: var(--mainWhite);
+}
+
+/* --- end of order details --- */
+
+/* --- checkout --- */
+.checkout form,
+.order table,
+.submit-review form {
+  padding: 5%;
+}
+
+/* --- end of checkout --- */
+
+/* --- confirmation --- */
+.confirmed-order {
+  height: 80vh;
+  color: var(--mainWhite);
+  text-shadow: 0.1rem 0.1rem 0.8rem black;
+}
+
+/* --- end of confirmation ---- */
+
+/* Reviews */
+.single-review {
+  color: var(--mainBlack);
+}
+
+.review button {
+  width: 50%;
+}
+
+/* end of reviews */
+
+/* --- footer --- */
+.footer {
+  color: var(--mainWhite);
+  background-color: var(--mainDarkGrey);
+}
+
+.footer-title {
+  text-transform: capitalize;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.footer-content p {
+  font-size: 1.3em;
+}
+
+.footer-content a {
+  color: var(--mainWhite);
+}
+
+.footer-bottom {
+  font-size: 1.2em;
+}
+
+.days {
+  font-style: italic;
+}
+
+.footer i {
+  font-size: 1.5em;
+  color: var(--mainWhite);
+  padding: 0 2% 2% 2%;
+}
+
+.footer i:hover,
+.footer-content a:hover,
+.back-to-menu a:hover {
+  transition: var(--mainTransition);
+  color: var(--mainGold);
+  text-decoration: none;
+}
+
+.footer-bottom {
+  background-color: #121212;
+  color: whitesmoke;
+}
+
+/* --- end of footer --- */
+
+/* Media queries */
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+  * {
+    font-size: 10px;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  * {
+    font-size: 12px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  * {
+    font-size: 14px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  * {
+    font-size: 15px;
+  }
+}

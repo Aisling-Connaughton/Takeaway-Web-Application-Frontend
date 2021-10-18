@@ -1,0 +1,59 @@
+<!-- Menu by Category Details -->
+<div class="menu-category row d-flex justify-content-center pt-5 pb-5">
+    <div class="col-md-5 col-11">
+        <div class="row d-flex justify-content-center">
+            <div class="col pb-3">
+                <h3 class="text-center">{{ currentCategoryName }}</h3>
+            </div>
+        </div>
+        <div class="back-to-menu pb-2">
+            <a routerLink="/category">
+                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                Back to Menu</a>
+        </div>
+        <!-- Get all dishes for the category -->
+        <div *ngFor="let tempDish of dishes" class="row d-flex justify-content-center pt-2 pb-3 menu-item">
+            <div class="col-md-6">
+                <p class="dish-name">{{ tempDish.name }}</p>
+                <p class=dish-description>{{ tempDish.description }}</p>
+            </div>
+            <div class="col-md-1 pt-2">
+                <p class="dish-price text-center">{{ tempDish.unitPrice | currency: 'EUR' }}</p>
+            </div>
+            <div class="col-md-2 pt-2">
+                <form [formGroup]="dishFormGroup">
+                    <div formGroupName="dishForm" class="form-area">
+                        <select formControlName="selectedQuantity">
+                            <option disabled selected value="null">Quantity</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3 pt-1">
+                <button (click)="addToCart(tempDish)" type="button" class="btn btn-dark">
+                    Add to order
+                </button>
+            </div>
+        </div>
+        <!-- If there are no dishes -->
+        <div *ngIf="dishes.length === 0">
+            <div class="row d-flex justify-content-center">
+                <div class="col pt-5">
+                    <p class="empty-list">No dishes are available in {{ currentCategoryName }}.</p>
+                    <button class="btn btn-dark" routerLink="/category">Go to menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Order Details -->

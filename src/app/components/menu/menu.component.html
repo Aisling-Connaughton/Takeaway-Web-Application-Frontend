@@ -1,0 +1,29 @@
+<!-- Menu -->
+<div class="menu row d-flex justify-content-center pt-5 pb-5">
+    <div class="col-md-5 col-11">
+        <div class="row d-flex justify-content-center">
+            <div class="col pb-3">
+                <h3 class="text-center">menu</h3>
+            </div>
+        </div>
+        <!-- For each category in the menu -->
+        <div *ngIf="dishCategories">
+            <div *ngFor="let tempDishCategory of dishCategories" class="row d-flex justify-content-center">
+                <div class="col pb-3">
+                    <button class="btn btn-lg btn-dark" routerLink="/category/{{ tempDishCategory?.id }}/{{ tempDishCategory?.categoryName }}">{{ tempDishCategory?.categoryName }}</button>
+                </div>
+            </div>
+        </div>
+        <!-- if there are no categories -->
+        <div *ngIf="dishCategories.length === 0">
+            <div class="row d-flex justify-content-center">
+                <div class="col pt-5">
+                    <p class="empty-list">No menu categories are available.</p>
+                    <button class="btn btn-dark" routerLink="">Go to home</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End of Menu -->

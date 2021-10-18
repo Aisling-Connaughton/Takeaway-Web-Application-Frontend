@@ -1,0 +1,9 @@
+<div class="cart-btn ml-auto">
+    <span class="pl-5 total-price">{{ totalPrice | currency: 'EUR'}}</span>
+    <span class="nav-icon">
+        <a routerLink="/cart-details">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+    </span>
+    <div class="cart-items">{{ totalQuantity }}</div>
+</div>

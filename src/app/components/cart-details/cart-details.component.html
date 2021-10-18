@@ -1,0 +1,65 @@
+<!-- Order Details -->
+<div class="order row d-flex justify-content-center pt-5 pb-5">
+    <div class="col-md-4 col-11">
+        <div class="row d-flex justify-content-center">
+            <div class="col pb-3">
+                <h3 class="text-center">your order</h3>
+            </div>
+        </div>
+        
+        <div *ngIf="cartItems.length>0">
+            <div class="back-to-menu pb-2">
+                <a routerLink="/category">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                    Back to Menu</a>
+            </div>
+            <table class="table pb-3">
+                <tr *ngFor="let tempCartItem of cartItems">
+                    <td width=50%>
+                        <p class="pl-3">{{ tempCartItem.name }}</p>
+                    </td>
+                    <td width=50%>
+                        <div class="order-details row no-gutters">
+                            <div class="col-sm-6 col-12 pb-2">
+                                <button (click)="decrementQuantity(tempCartItem)" class="btn btn-sm btn-dark">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span>{{ tempCartItem.quantity }}</span>
+                                <button (click)="incrementQuantity(tempCartItem)" class="btn btn-sm btn-dark">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <button (click)="remove(tempCartItem)" class="btn btn-dark btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                <span>{{ tempCartItem.unitPrice | currency: 'EUR'}}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <p>Total quantity: {{ totalQuantity }} </p>
+                                <p>Total price: {{ totalPrice.toFixed(2) | currency: 'EUR'}} </p>
+                                <p *ngIf="totalPrice < 20" style="font-style: italic;">Minimum order is €20</p>
+                                <button routerLink="/checkout" class="btn btn-dark mt-2 mb-2" [disabled]="totalPrice < 20">Checkout</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- if there are no items ordered -->
+        <div *ngIf="cartItems.length === 0">
+            <div class="row d-flex justify-content-center">
+                <div class="col pt-5">
+                    <p class="empty-list">No items in cart.</p>
+                    <button class="btn btn-dark" routerLink="/category" >Go to menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End of Order Details -->

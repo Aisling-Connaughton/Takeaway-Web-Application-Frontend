@@ -1,0 +1,42 @@
+<!-- Reviews -->
+<div class="review row d-flex justify-content-center pt-5 pb-5">
+    <div class="col-md-5 col-11">
+        <div class="row d-flex justify-content-center">
+            <div class="col pb-3">
+                <h3 class="text-center">reviews</h3>
+            </div>
+        </div>
+        <!-- Reviews -->
+        <div class="row row-cols-1 row-cols-lg-3 justify-content-center">
+            <div *ngFor="let tempReview of reviews" class="col mb-3">
+                <div class="card h-100 single-review">
+                    <div class="card-body">
+                        <h6 class="card-title">Name:</h6>
+                        <p class="card-text"> {{ tempReview.name }}</p>
+                        <h6 class="card-title">Overall Rating:</h6>
+                        <p class="card-text"> {{tempReview.rating}}/5</p>
+                        <h6 class="card-title">Comment: </h6>
+                        <p class="card-text">{{tempReview.comment}}</p>
+                        <h6 class="card-title">Date:</h6>
+                        <p class="card-text">{{ tempReview.creationDate | date: 'dd/MM/yyyy' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- if reviews are empty then display a message -->
+        <!-- If there are no dishes -->
+        <div *ngIf="reviews.length === 0">
+            <div class="row d-flex justify-content-center">
+                <div class="col pt-5">
+                    <p class="empty-list">No reviews are available.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- submit a review -->
+        <div class="text-center pt-5">
+            <button class="btn btn-dark" routerLink="/submit-review">Submit a review</button>
+        </div>
+    </div>
+</div>
+<!-- End of Reviews -->

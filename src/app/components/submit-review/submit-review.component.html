@@ -1,0 +1,92 @@
+<!-- Review Submission -->
+<div class="submit-review row d-flex justify-content-center pt-5 pb-5">
+    <div class="col-md-7 col-11">
+        <h3 class="text-center pb-3">Submit a review</h3>
+        <form [formGroup]="reviewFormGroup" (ngSubmit)="onSubmit()">
+            <!-- review form group-->
+            <div formGroupName="review" class="form-area">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <input formControlName="name" type="text" style="width:100%;">
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                class="alert alert-danger mt-1">
+                                <div *ngIf="name.errors.required || name.errors.notOnlyWhitespace">Name is
+                                    required
+                                </div>
+                                <div *ngIf="name.errors.minlength || name.errors.pattern">Name must be a minimum
+                                    of
+                                    2 characters
+                                    long</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Order Number</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <input formControlName="orderTrackingNumber" type="text" style="width:100%;">
+                            <div *ngIf="orderTrackingNumber.invalid && (orderTrackingNumber.dirty || orderTrackingNumber.touched)" class="alert alert-danger mt-1">
+                                <div *ngIf="orderTrackingNumber.errors.required || orderTrackingNumber.errors.notOnlyWhitespace">Order number is
+                                    required
+                                </div>
+                                <div *ngIf="orderTrackingNumber.errors.minlength || orderTrackingNumber.errors.pattern">Order number must 36 characters long</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Comment</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <textarea formControlName="comment" type="text" style="width:100%;"></textarea>
+                            <div *ngIf="comment.invalid && (comment.dirty || comment.touched)"
+                                class="alert alert-danger mt-1">
+                                <div *ngIf="comment.errors.required || comment.errors.notOnlyWhitespace">Comment
+                                    is required
+                                </div>
+                                <div *ngIf="comment.errors.minlength">Comment must be a minimum of 2 characters
+                                    long</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Rating</label>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-space">
+                            <select formControlName="rating" style="min-width: 50%;">
+                                <option disabled selected value="">Rating</option>
+                                <option>5</option>
+                                <option>4</option>
+                                <option>3</option>
+                                <option>2</option>
+                                <option>1</option>
+                            </select>
+                            <div *ngIf="rating.invalid && (rating.dirty || rating.touched)"
+                                class="alert alert-danger mt-1">
+                                <div *ngIf="rating.errors.required">Rating is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of customer form group -->
+            <!-- submit -->
+            <div class="text-center pt-5">
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End of Review Submission -->
